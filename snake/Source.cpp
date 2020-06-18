@@ -4,6 +4,8 @@
 #include <thread>
 #include <string>
 #include <conio.h>
+#include <fstream>
+
 using namespace std;
 
 int ekranoPlotis = 120;
@@ -18,6 +20,7 @@ bool maistoAmuletas;
 bool sansas = true;
 int maistas2X = 10;
 int maistas2Y = 10;
+int taskai = 0;
 
 struct snakeKoord {
 
@@ -39,6 +42,7 @@ int main() {
 		cout << "1. Naujas zaidimas" << endl;
 		cout << "2. Inventorius" << endl;
 		cout << "3. Parduotuve" << endl;
+		cout << "4. Irasyti taskus" << endl;
 		cout << "0. Iseiti" << endl;
 		cout << endl;
 		cout << " Pasirinkimas: ";
@@ -55,7 +59,6 @@ int main() {
 				list<snakeKoord> snake = { { 60, 15} };
 				int maistasX = 30;
 				int maistasY = 15;
-				int taskai = 0;
 				int snakeKryptis = 3;
 				int pinigasY = 25;
 				int pinigasX = 10;
@@ -291,7 +294,27 @@ int main() {
 		
 		break;
 		case 4:
+			ofstream output("score.html");
 
+
+
+			output << "<html><head>";
+			output << "<style>table, th, td {border: 1px solid black;}</style>";
+			output << "<h2>Tasku lentele</h2> <table style='width:20%'>";
+			output << "<tr>";
+			output << " <th>Vieta</th>";
+			output << "  <th>Slapyvardis</th> ";
+			output << " <th>Taskai</th>";
+			output << " </tr>";
+			output << " <tr>";
+				output << "   <td>";
+				output << " <td>";
+				output << nick << "</td>";
+				output << "  <td>";
+				output << taskai << "</td>";
+				output << " </tr>";
+			output << "</table>";
+			output << "</head></html>";
 			break;
 		
 		}
